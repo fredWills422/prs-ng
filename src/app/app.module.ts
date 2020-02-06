@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { BaseComponent } from './base/base.component';
+import { SortPipe } from './pipe/sort.pipe';
 import { MenuComponent } from './core/menu/menu.component';
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 
@@ -13,7 +14,8 @@ import { UserListComponent } from './feature/user/user-list/user-list.component'
     AppComponent,
     BaseComponent,
     MenuComponent,
-    UserListComponent
+    UserListComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
