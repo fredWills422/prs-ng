@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
+import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UserCreateComponent } from './feature/user/user-create/user-create.comp
 
     UserListComponent,
     UserDetailComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class UserCreateComponent implements OnInit {
 
-  title: string = 'user-Create';
+  title: string = 'User-Create';
   submitBtnTitle: string ='Create';
   user: User = new User();
   constructor(private userSvc: UserService,
