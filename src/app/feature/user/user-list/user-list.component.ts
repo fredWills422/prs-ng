@@ -11,7 +11,7 @@ import { BaseComponent } from 'src/app/base/base.component';
 export class UserListComponent extends BaseComponent implements OnInit {
 
   users: User[];
-  title: string = 'user-list'
+  title: string = 'User-list'
 
   constructor(private userSvc: UserService) {
     super();
