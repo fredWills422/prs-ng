@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
+import { UserCreateComponent } from './feature/user/user-create/user-create.component';
+
 
 @NgModule({
   declarations: [
@@ -20,8 +22,8 @@ import { UserDetailComponent } from './feature/user/user-detail/user-detail.comp
     SortPipe,
 
     UserListComponent,
-    UserDetailComponent
-    
+    UserDetailComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
