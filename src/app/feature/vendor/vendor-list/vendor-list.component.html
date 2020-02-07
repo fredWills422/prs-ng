@@ -16,7 +16,7 @@
             <th><a (click)="sort('zip')">zip</a></th>
             <th><a (click)="sort('address')">address</a></th>
             <th><a (click)="sort('email')">email</a></th>
-            <th><a (click)="sort('phone')">Phone</a></th>
+            <th><a (click)="sort('phoneNumber')">PhoneNumber</a></th>
             <th>Action</th>
         
         </tr>
@@ -32,7 +32,7 @@
             <td>{{vendor.zip}}</td>
             <td>{{vendor.address}}</td>
             <td>{{vendor.email}}</td>
-            <td>{{vendor.phone}}</td>
+            <td>{{vendor.phoneNumber}}</td>
             <td>
                 <a routerLink='/vendor/detail/{{vendor.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
                  | 

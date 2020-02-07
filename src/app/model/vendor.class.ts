@@ -8,11 +8,11 @@ export class Vendor {
     zip: number;
     address: string;
     email: string;
-    phone: string;
+    phoneNumber: string;
 
     constructor(id: number=0, name:string="", code: string="",
                 state: string="", city: string="", zip: number=0,
-                address: string="", email: string="", phone: string="") {
+                address: string="", email: string="", phoneNumber: string="") {
         
         this.id=id;
         this.name=name;
@@ -22,7 +22,7 @@ export class Vendor {
         this.zip=zip;
         this.address=address;
         this.email=email;
-        this.phone=phone;
+        this.phoneNumber=phoneNumber;
         
     }
 
