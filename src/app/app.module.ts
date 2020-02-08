@@ -22,6 +22,9 @@ import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.co
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+
+import { RequestListComponent } from './feature/request/request-list/request-list.component';
 
 
 
@@ -46,6 +49,9 @@ import { ProductCreateComponent } from './feature/product/product-create/product
     ProductListComponent,
     ProductDetailComponent,
     ProductCreateComponent,
+    ProductEditComponent,
+
+    RequestListComponent,
     
   ],
   imports: [
