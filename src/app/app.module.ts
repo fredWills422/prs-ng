@@ -20,6 +20,7 @@ import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-cre
 import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
 
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 
 
 
@@ -42,6 +43,8 @@ import { ProductListComponent } from './feature/product/product-list/product-lis
     VendorEditComponent,
 
     ProductListComponent,
+
+    ProductDetailComponent,
     
   ],
   imports: [
