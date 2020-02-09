@@ -17,6 +17,7 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 
 import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'product/edit/:id', component: ProductEditComponent},
 
   {path: 'request/list', component: RequestListComponent},
+  {path: 'request/detail/:id', component: RequestDetailComponent},
 
   {path: '**', component: UserListComponent}
 ];
