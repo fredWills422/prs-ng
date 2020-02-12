@@ -33,4 +33,9 @@ export class UserService {
     return this.http.delete(url+id) as Observable<JsonResponse>;
   }
 
+  //user is passed into the body of url request
+  login(user:User): Observable<JsonResponse>{
+    return this.http.post(url+'login', user) as Observable<JsonResponse>;
+  }
+
 }

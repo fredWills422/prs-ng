@@ -20,11 +20,12 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 
 const routes: Routes = [
   {path:'', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: UserListComponent},
+  {path: 'home', component: UserLoginComponent},
 
   {path: 'user/list', component: UserListComponent},
   {path: 'user/detail/:id', component: UserDetailComponent},
@@ -45,6 +46,8 @@ const routes: Routes = [
   {path: 'request/detail/:id', component: RequestDetailComponent},
   {path: 'request/create', component: RequestCreateComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
+
+  { path: 'user/login', component: UserLoginComponent },
 
   {path: '**', component: UserListComponent}
 ];
