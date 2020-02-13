@@ -36,7 +36,7 @@
             <td>
                 <a routerLink='/user/detail/{{user.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
                  | 
-                <a routerLink='/user/edit/{{user.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+                <a *ngIf='!user.admin' routerLink='/user/edit/{{user.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
             </td>
             
         </tr>
