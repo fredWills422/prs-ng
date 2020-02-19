@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
 import { RequestService } from 'src/app/service/request.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-detail',
@@ -16,11 +17,14 @@ export class RequestDetailComponent extends BaseComponent implements OnInit {
 
   constructor(private requestSvc: RequestService,
     private router: Router,
-    private route: ActivatedRoute) {
-      super();
+    private route: ActivatedRoute,
+    protected sysSvc: SystemService) {
+      super(sysSvc);
      }
 
   ngOnInit() {
+    super.ngOnInit();
+    
     //get request id from the url call service to populate request property
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.requestSvc.get(this.id).subscribe(jr => {

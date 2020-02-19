@@ -3,6 +3,7 @@ import { Product } from 'src/app/model/product.class';
 import { ProductService } from 'src/app/service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BaseComponent } from 'src/app/base/base.component';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,8 +18,9 @@ export class ProductDetailComponent extends BaseComponent implements OnInit {
 
   constructor(private productSvc: ProductService,
     private router: Router,
-    private route: ActivatedRoute) {
-      super();
+    private route: ActivatedRoute,
+    protected sysSvc: SystemService) {
+      super(sysSvc);
      }
 
   ngOnInit() {
