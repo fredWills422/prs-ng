@@ -5,13 +5,15 @@ import { Vendor } from 'src/app/model/vendor.class';
 import { ProductService } from 'src/app/service/product.service';
 import { VendorService } from 'src/app/service/vendor.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BaseComponent } from 'src/app/base/base.component';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-edit',
   templateUrl: '../product-maint-shared/product-maint.component.html',
   styleUrls: ['./product-edit.component.css']
 })
-export class ProductEditComponent implements OnInit {
+export class ProductEditComponent extends BaseComponent implements OnInit {
 
   title: string = 'Product-Edit';
   submitBtnTitle: string ='Save';
@@ -23,9 +25,15 @@ export class ProductEditComponent implements OnInit {
               private vendorSvc: VendorService,
               private router: Router,
               private route: ActivatedRoute,
-              private location: Location) { }
+              private location: Location,
+              protected sysSvc: SystemService) { 
+                super(sysSvc);
+  }
 
   ngOnInit() {
+    
+    super.ngOnInit();
+    
     //get product id from the url call service to populate product property
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.productSvc.get(this.id).subscribe(jr => {

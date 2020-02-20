@@ -24,6 +24,9 @@ export class ProductDetailComponent extends BaseComponent implements OnInit {
      }
 
   ngOnInit() {
+
+    super.ngOnInit();
+
     //get product id from the url call service to populate product property
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.productSvc.get(this.id).subscribe(jr => {

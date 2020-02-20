@@ -5,13 +5,15 @@ import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
 import { VendorService } from 'src/app/service/vendor.service';
 import { Vendor } from 'src/app/model/vendor.class';
+import { BaseComponent } from 'src/app/base/base.component';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-create',
   templateUrl: '../product-maint-shared/product-maint.component.html',
   styleUrls: ['./product-create.component.css']
 })
-export class ProductCreateComponent implements OnInit {
+export class ProductCreateComponent extends BaseComponent implements OnInit {
 
   title: string = 'Product-Create';
   submitBtnTitle: string ='Create';
@@ -21,9 +23,15 @@ export class ProductCreateComponent implements OnInit {
   constructor(private productSvc: ProductService,
               private vendorSvc: VendorService,
               private router: Router,
-              private location: Location) { }
+              private location: Location,
+              protected sysSvc: SystemService) {
+                super(sysSvc);
+  }
 
   ngOnInit() {
+    
+    super.ngOnInit();
+
     //populate vendors
     this.vendorSvc.list().subscribe(
       jr => {
