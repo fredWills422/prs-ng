@@ -10,7 +10,7 @@ import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-edit',
-  templateUrl: '../product-maint-shared/product-maint.component.html',
+  templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent extends BaseComponent implements OnInit {
@@ -26,14 +26,14 @@ export class ProductEditComponent extends BaseComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private location: Location,
-              protected sysSvc: SystemService) { 
+              protected sysSvc: SystemService) {
                 super(sysSvc);
   }
 
   ngOnInit() {
-    
+
     super.ngOnInit();
-    
+
     //get product id from the url call service to populate product property
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.productSvc.get(this.id).subscribe(jr => {

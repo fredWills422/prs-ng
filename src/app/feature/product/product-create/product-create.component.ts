@@ -10,7 +10,7 @@ import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-create',
-  templateUrl: '../product-maint-shared/product-maint.component.html',
+  templateUrl: './product-create.component.html',
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent extends BaseComponent implements OnInit {
@@ -24,12 +24,12 @@ export class ProductCreateComponent extends BaseComponent implements OnInit {
               private vendorSvc: VendorService,
               private router: Router,
               private location: Location,
-              protected sysSvc: SystemService) {
+              protected sysSvc: SystemService) { 
                 super(sysSvc);
   }
 
   ngOnInit() {
-    
+
     super.ngOnInit();
 
     //populate vendors
@@ -55,5 +55,5 @@ export class ProductCreateComponent extends BaseComponent implements OnInit {
   backClicked(){
     this.location.back();
   }
-  
+
 }
