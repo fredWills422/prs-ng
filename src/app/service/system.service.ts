@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class SystemService {
 
-loggedInUser: User;
+  loggedInUser: User;
 
   data = {
     about: 'System Service',

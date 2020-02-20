@@ -5,13 +5,15 @@ import { User } from 'src/app/model/user.class';
 import { RequestService } from 'src/app/service/request.service';
 import { UserService } from 'src/app/service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BaseComponent } from 'src/app/base/base.component';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-edit',
-  templateUrl: '../request-maint-shared/request-maint.component.html',
+  templateUrl: './request-edit.component.html',
   styleUrls: ['./request-edit.component.css']
 })
-export class RequestEditComponent implements OnInit {
+export class RequestEditComponent extends BaseComponent implements OnInit {
 
   title: string = 'Request-Edit';
   submitBtnTitle: string ='Save';
@@ -23,9 +25,15 @@ export class RequestEditComponent implements OnInit {
               private userSvc: UserService,
               private router: Router,
               private route: ActivatedRoute,
-              private location: Location) { }
+              private location: Location,
+              protected sysSvc: SystemService) {
+                super(sysSvc);
+  }
 
   ngOnInit() {
+
+    super.ngOnInit();
+
     //get request id from the url call service to populate request property
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.requestSvc.get(this.id).subscribe(jr => {
@@ -52,7 +60,7 @@ export class RequestEditComponent implements OnInit {
     });
   }
 
-  compuser(a: User, b: User): boolean {
+  compUser(a: User, b: User): boolean {
     return a && b && a.id === b.id;
   }
 
