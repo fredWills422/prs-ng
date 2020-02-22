@@ -62,4 +62,14 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
     });
   }
 
+  submitForReview(){
+    this.requestSvc.submitForReview(this.request).subscribe(jr => {
+      let errs: string = jr.errors;
+      if (errs!=null){
+        console.log("Error editing request: "+errs);
+      }
+      this.router.navigateByUrl('/request/list');
+    });
+  }
+
 }
