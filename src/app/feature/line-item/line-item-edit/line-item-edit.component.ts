@@ -1,41 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
 import { User } from 'src/app/model/user.class';
-import { LineItem } from 'src/app/model/line-item.class';
 import { Request } from 'src/app/model/request.class';
+import { LineItem } from 'src/app/model/line-item.class';
 import { Product } from 'src/app/model/product.class';
 import { LineItemService } from 'src/app/service/line-item.service';
 import { RequestService } from 'src/app/service/request.service';
 import { ProductService } from 'src/app/service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { SystemService } from 'src/app/service/system.service';
 import { Vendor } from 'src/app/model/vendor.class';
 
 @Component({
-  selector: 'app-line-item-create',
-  templateUrl: './line-item-create.component.html',
-  styleUrls: ['./line-item-create.component.css']
+  selector: 'app-line-item-edit',
+  templateUrl: './line-item-edit.component.html',
+  styleUrls: ['./line-item-edit.component.css']
 })
+export class LineItemEditComponent extends BaseComponent implements OnInit {
 
-export class LineItemCreateComponent extends BaseComponent implements OnInit {
-
-  title: string = 'Request-LineItem-Create';
-  submitBtnTitle: string ='Create';
+  title: string = 'Request-LineItem-Edit';
+  submitBtnTitle: string ='Change';
   user:User;
-  request: Request= new Request();
+  id:number;
+  request:Request = new Request();
   lineItem: LineItem = new LineItem();
-  requests: Request[]=[];
-  products: Product[]=[];
-  vendors: Vendor[]=[];
-  requestId:number=0;
+  product:Product = new Product();
+  vendor: Vendor[]=[];
+  
   
   constructor(private lineItemSvc: LineItemService,
               private requestSvc: RequestService,
               private productSvc: ProductService,
               private router: Router,
               private route: ActivatedRoute,
-              private location: Location,
               protected sysSvc: SystemService) { 
                 super(sysSvc);
   }
@@ -45,19 +42,17 @@ export class LineItemCreateComponent extends BaseComponent implements OnInit {
     super.ngOnInit();
 
     this.user = this.loggedInUser;
+    
       
     //populate products
-    this.productSvc.list().subscribe(
-      jr => {
-        this.products = jr.data as Product[];
-        console.log(this.products);
-    });
+    
         
-    //get request id from the url call service to populate requestId property
-    this.route.params.subscribe(parms => this.requestId = parms['id']);
-      this.requestSvc.get(this.requestId).subscribe(jr => {
-        this.request = jr.data as Request;
-        this.lineItem.request=this.request;
+    //get lineItem id from the url call service to populate id property
+    this.route.params.subscribe(parms => this.id = parms['id']);
+      this.lineItemSvc.get(this.id).subscribe(jr => {
+        this.lineItem = jr.data as LineItem;
+        this.request = this.lineItem.request;
+        this.product = this.lineItem.product;
     });
         
   }
@@ -66,7 +61,7 @@ export class LineItemCreateComponent extends BaseComponent implements OnInit {
   save(){
     
     console.log("saving li-", this.lineItem);
-    this.lineItemSvc.create(this.lineItem).subscribe(jr => {
+    this.lineItemSvc.edit(this.lineItem).subscribe(jr => {
       let errs: string = jr.errors;
       if (errs!=null){
         console.log("Error creating lineItem: "+errs);
@@ -75,5 +70,16 @@ export class LineItemCreateComponent extends BaseComponent implements OnInit {
     });
 
   }
-  
+
+  delete() {
+    this.lineItemSvc.delete(this.lineItem.id).subscribe(jr => {
+      console.log("lineItem delete jr:",jr);
+      // Sean owes fix here to jr.  we will assume delete was successful
+      if (jr.errors != null) {
+        console.log("Error deleting product: "+jr.errors);
+      }
+      this.router.navigateByUrl("request/lines");
+    });
+  }
+
 }

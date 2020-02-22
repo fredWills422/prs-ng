@@ -29,12 +29,12 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
 
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
-import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
-import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
-
-
 
 
 @NgModule({
@@ -66,10 +66,10 @@ import { LineItemCreateComponent } from './feature/line-item/line-item-create/li
     RequestEditComponent,
     RequestLinesComponent,
 
-    UserLoginComponent,
-
     LineItemCreateComponent,
-
+    LineItemEditComponent,
+    
+    UserLoginComponent,
 
 
 
