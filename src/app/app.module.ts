@@ -31,6 +31,7 @@ import { RequestCreateComponent } from './feature/request/request-create/request
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 
 
 
@@ -62,8 +63,10 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     RequestDetailComponent,
     RequestCreateComponent,
     RequestEditComponent,
+    RequestLinesComponent,
 
     UserLoginComponent,
+
 
 
 

@@ -12,7 +12,7 @@ import { SystemService } from 'src/app/service/system.service';
 export class ProductListComponent extends BaseComponent implements OnInit {
 
   products: Product[];
-  title: string = 'Product-list'
+  title: string = 'Product-list';
 
   constructor(private productSvc: ProductService,
               protected sysSvc: SystemService) {

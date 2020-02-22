@@ -3,6 +3,7 @@ import { Request } from 'src/app/model/request.class';
 import { RequestService } from 'src/app/service/request.service';
 import { BaseComponent } from 'src/app/base/base.component';
 import { SystemService } from 'src/app/service/system.service';
+import { User } from 'src/app/model/user.class';
 
 @Component({
   selector: 'app-request-list',
@@ -11,17 +12,20 @@ import { SystemService } from 'src/app/service/system.service';
 })
 export class RequestListComponent extends BaseComponent implements OnInit {
 
+  user: User;
   requests: Request[];
-  title: string = 'Request-list'
+  title: string = 'Request-list';
 
   constructor(private requestSvc: RequestService,
               protected sysSvc: SystemService) {
     super(sysSvc);
-   }
+  }
 
   ngOnInit() {
 
     super.ngOnInit();
+    
+    this.user=this.loggedInUser
     
     this.requestSvc.list().subscribe(
       jr => {
@@ -29,6 +33,7 @@ export class RequestListComponent extends BaseComponent implements OnInit {
         console.log(this.requests);
       }
     );
+
   }
 
 }

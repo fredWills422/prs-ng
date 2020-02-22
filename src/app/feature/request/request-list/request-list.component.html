@@ -40,9 +40,9 @@
             <td>
                 <a routerLink='/request/detail/{{request.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
                  | 
-                 <a routerLink='/request/list/{{request.id}}'><img src='assets/lines.png' width='20' height='20' title='Lines'></a>
+                 <a routerLink='/request/lines/{{request.id}}'><img src='assets/lines.png' width='20' height='20' title='Lines'></a>
                  |
-                 <a *ngIf="loggedInUser.id == request.user.id" routerLink='/request/edit/{{request.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+                 <a *ngIf="loggedInUser.admin" routerLink='/request/edit/{{request.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
             </td>
             
         </tr>
