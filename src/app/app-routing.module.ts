@@ -23,8 +23,9 @@ import { RequestCreateComponent } from './feature/request/request-create/request
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 
-import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
 
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/home', pathMatch: 'full'},
@@ -51,6 +52,8 @@ const routes: Routes = [
   {path: 'request/create', component: RequestCreateComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request/lines/:id', component: RequestLinesComponent},
+  
+  {path: 'line-item/line-item-create', component: LineItemCreateComponent},
 
   { path: 'user/login', component: UserLoginComponent },
 

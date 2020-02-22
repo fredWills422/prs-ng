@@ -32,6 +32,7 @@ import { RequestEditComponent } from './feature/request/request-edit/request-edi
 
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
 
 
 
@@ -66,6 +67,8 @@ import { RequestLinesComponent } from './feature/request/request-lines/request-l
     RequestLinesComponent,
 
     UserLoginComponent,
+
+    LineItemCreateComponent,
 
 
 
