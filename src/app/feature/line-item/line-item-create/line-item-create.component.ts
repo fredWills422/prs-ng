@@ -18,6 +18,7 @@ import { Vendor } from 'src/app/model/vendor.class';
   templateUrl: './line-item-create.component.html',
   styleUrls: ['./line-item-create.component.css']
 })
+
 export class LineItemCreateComponent extends BaseComponent implements OnInit {
 
   title: string = 'Request-LineItem-Create';
@@ -45,30 +46,20 @@ export class LineItemCreateComponent extends BaseComponent implements OnInit {
     super.ngOnInit();
 
     this.user = this.loggedInUser;
-
-    
-    //populate requests
-    // this.requestSvc.list().subscribe(
-    //   jr => {
-      //     this.requests = jr.data as Request[];
-      //     console.log(this.requests);
-      //   }
-      // );
       
-      //populate products
-      this.productSvc.list().subscribe(
-        jr => {
-          this.products = jr.data as Product[];
-          console.log(this.products);
-        }
-        );
+    //populate products
+    this.productSvc.list().subscribe(
+      jr => {
+        this.products = jr.data as Product[];
+        console.log(this.products);
+    });
         
-        //get request id from the url call service to populate requestId property
-        this.route.params.subscribe(parms => this.requestId = parms['id']);
-        this.requestSvc.get(this.requestId).subscribe(jr => {
-          this.request = jr.data as Request;
-          this.lineItem.request=this.request;
-        });
+    //get request id from the url call service to populate requestId property
+    this.route.params.subscribe(parms => this.requestId = parms['id']);
+      this.requestSvc.get(this.requestId).subscribe(jr => {
+        this.request = jr.data as Request;
+        this.lineItem.request=this.request;
+    });
         
   }
 
