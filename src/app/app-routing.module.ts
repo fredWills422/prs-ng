@@ -53,7 +53,7 @@ const routes: Routes = [
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request/lines/:id', component: RequestLinesComponent},
   
-  {path: 'line-item/line-item-create', component: LineItemCreateComponent},
+  {path: 'line-item/line-item-create/:id', component: LineItemCreateComponent},
 
   { path: 'user/login', component: UserLoginComponent },
 

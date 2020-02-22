@@ -28,7 +28,8 @@ export class RequestDetailComponent extends BaseComponent implements OnInit {
     //get request id from the url call service to populate request property
     this.route.params.subscribe(parms => this.id = parms['id']);
     this.requestSvc.get(this.id).subscribe(jr => {
-      this.request = jr.data as Request});
+      this.request = jr.data as Request
+    });
 
       
   }
