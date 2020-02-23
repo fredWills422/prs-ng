@@ -12,7 +12,7 @@
         
         <tr>
             
-            <th><a>ID</a></th>
+            <th><a>RequestID</a></th>
             <th><a>Description</a></th>
             <th><a>Status</a></th>
             <th><a>Total</a></th>
@@ -50,7 +50,7 @@
         
         <tr>
             
-            <th><a>ID</a></th>
+            <th><a>LineItemID</a></th>
             <th><a>Product</a></th>
             <th><a>Quantity</a></th>
             <th><a>Price</a></th>
@@ -73,7 +73,7 @@
             <td>{{lineItem.quantity * lineItem.product.price}}</td>
             
             <td>
-                <a routerLink='/lineItem/detail/{{lineItem.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+                <a routerLink='/request/lines/{{lineItem.request.id}}'><img (click)='delete()'src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
                 | 
                 <a routerLink='/line-item/line-item-edit/{{lineItem.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
             </td>
