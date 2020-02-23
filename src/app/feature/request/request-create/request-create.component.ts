@@ -20,6 +20,7 @@ export class RequestCreateComponent extends BaseComponent implements OnInit {
   request: Request = new Request();
   users: User[]=[];
   
+
   constructor(private requestSvc: RequestService,
               private userSvc: UserService,
               private router: Router,
@@ -39,6 +40,8 @@ export class RequestCreateComponent extends BaseComponent implements OnInit {
         console.log(this.users);
       }
     );
+
+    
   }
 
 

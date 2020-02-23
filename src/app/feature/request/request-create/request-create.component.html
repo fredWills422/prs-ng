@@ -10,10 +10,12 @@
             
             <tr>
                 <td>
-                    UserID:
+                    user:
                 </td>
                 <td>
-                    {{loggedInUser.id}}
+                    <select [(ngModel)]="request.user" class="rounded">
+                        <option *ngFor='let user of users' [ngValue]='user'>{{user.userName}}</option>
+                    </select>
                 </td>
             </tr>
             <tr>
