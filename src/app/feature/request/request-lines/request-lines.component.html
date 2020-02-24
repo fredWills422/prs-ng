@@ -64,7 +64,7 @@
 
     <tbody>
         
-        <tr *ngFor='let lineItem of linesForRequest'>
+        <tr *ngFor='let lineItem of linesForRequest; let i = index'>
             
             <td>{{lineItem.id}}</td>
             <td>{{lineItem.product.name}}</td>
@@ -73,7 +73,7 @@
             <td>{{lineItem.quantity * lineItem.product.price}}</td>
             
             <td>
-                <a routerLink='/request/lines/{{lineItem.request.id}}'><img (click)='delete()'src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
+                <a routerLink='/request/lines/{{request.id}}'><img (click)='delete(i)'src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
                 | 
                 <a routerLink='/line-item/line-item-edit/{{lineItem.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
             </td>

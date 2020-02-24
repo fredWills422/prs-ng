@@ -18,17 +18,18 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
   
   title: string = 'Request-lines';
   user:User;
-  id:number;
+  requestId:number;
   request:Request = new Request();
   linesForRequest: LineItem[];
-
+  lineItem:LineItem = new LineItem();
+  
   constructor(protected sysSvc:SystemService,
               private lineItemSvc:LineItemService,
               private router:Router,
               private route:ActivatedRoute,
               private requestSvc:RequestService) {
     super(sysSvc);
-   }
+  }
 
   ngOnInit() {
 
@@ -37,29 +38,22 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
     this.user = this.loggedInUser;
 
     //get request id from the url call service to populate request property
-    this.route.params.subscribe(parms => this.id = parms['id']);
-    this.requestSvc.get(this.id).subscribe(jr => {
-      this.request = jr.data as Request;
-    });
+    this.route.params.subscribe(parms => this.requestId = parms['id']);
     
-    //populate linesForRequest
-    this.lineItemSvc.linesForRequest(this.id).subscribe(
-        jr => {
-          this.linesForRequest = jr.data as LineItem[];
-          console.log(this.linesForRequest);
-        }
+    this.requestSvc.get(this.requestId).subscribe(
+      jr => {
+        this.request = jr.data as Request;
+      }
     );
     
-  }
-
-  save(){
-    this.requestSvc.edit(this.request).subscribe(jr => {
-      let errs: string = jr.errors;
-      if (errs!=null){
-        console.log("Error editing request: "+errs);
+    //populate linesForRequest
+    this.lineItemSvc.linesForRequest(this.requestId).subscribe(
+      jr => {
+        this.linesForRequest = jr.data as LineItem[];
+        console.log(this.linesForRequest);
       }
-      this.router.navigateByUrl('/request/list');
-    });
+    );
+    
   }
 
   submitForReview(){
@@ -70,6 +64,19 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
       }
       this.router.navigateByUrl('/request/list');
     });
+  }
+
+  delete(id:number) {  
+    this.lineItemSvc.delete(this.linesForRequest[id].id).subscribe(
+      jr => {
+        console.log("lineItem delete jr:",jr);
+        if (jr.errors != null) {
+          console.log("Error deleting user: "+jr.errors);
+        }
+        this.linesForRequest.splice(id,1);
+        this.router.navigateByUrl("request/lines/{{linesForRequest[id].id}}");
+      }
+    );
   }
 
 }
