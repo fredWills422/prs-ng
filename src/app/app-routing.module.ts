@@ -16,18 +16,18 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 
-
 import { RequestListComponent } from './feature/request/request-list/request-list.component';
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 
 import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
 import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
 
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
-import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/home', pathMatch: 'full'},
@@ -55,6 +55,7 @@ const routes: Routes = [
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request/lines/:id', component: RequestLinesComponent},
   {path: 'request/review', component: RequestReviewComponent},
+  {path: 'request/approve/:id', component: RequestApproveComponent},
   
   {path: 'line-item/line-item-create/:id', component: LineItemCreateComponent},
   {path: 'line-item/line-item-edit/:id', component: LineItemEditComponent},
