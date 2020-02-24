@@ -1,1 +1,46 @@
-<p>request-review works!</p>
+<app-menu></app-menu>
+<span class='component-title'>[{{title}}]</span>
+<span><a routerLink='/request/create'>
+    <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
+    </a>
+</span>
+<table *ngIf='requests' class="table table-striped table sm">
+    <thead class="thead-dark">
+        <tr>
+            
+            <th><a (click)="sort('id')">ID</a></th>
+            <th>UserId</th>
+            <th><a (click)="sort('description')">Description</a></th>
+            <th><a (click)="sort('submittedDate')">SubmittedDate</a></th>
+            <th><a (click)="sort('dateNeeded')">DateNeeded</a></th>
+            <th><a (click)="sort('justification')">Justification</a></th>
+            <th><a (click)="sort('status')">status</a></th>
+            <th><a (click)="sort('total')">Total</a></th>
+            <th><a (click)="sort('deliveryMode')">DeliveryMode</a></th>
+            <th><a (click)="sort('reasonForRejection')">ReasonForRejection</a></th>
+            
+            <th>Action</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let request of requests | sort:sortColumn:ascOrder'>
+            
+            <td>{{request.id}}</td>
+            <td>{{request.user.id}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.submittedDate}}</td>
+            <td>{{request.dateNeeded}}</td>
+            <td>{{request.justification}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total}}</td>
+            <td>{{request.deliveryMode}}</td>
+            <td>{{request.reasonForRejection}}</td>
+            
+            <td>
+                <a routerLink='/request/review/{{request.id}}'><img src='assets/review.png' width='20' height='20' title='Detail'></a>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

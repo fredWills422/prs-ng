@@ -40,4 +40,8 @@ export class RequestService {
     return this.http.put(url+"submit-review/", request) as Observable<JsonResponse>;
   }
 
+  listForReviewNotThisUser(id:number) : Observable<JsonResponse>{
+    return this.http.get(url+"list-review/"+id) as Observable<JsonResponse>;
+  }
+
 }
