@@ -47,5 +47,8 @@ export class RequestService {
   approve(request:Request, id:number) : Observable<JsonResponse>{
     return this.http.put(url+"approve/"+id, request) as Observable<JsonResponse>;
   }
+  reject(request:Request, id:number) : Observable<JsonResponse>{
+    return this.http.put(url+"reject/"+id, request) as Observable<JsonResponse>;
+  }
 
 }

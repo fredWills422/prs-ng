@@ -78,5 +78,17 @@ export class RequestApproveComponent extends BaseComponent implements OnInit {
       }
     )
   }
+  
+  reject(request:Request, id:number){
+    this.requestSvc.reject(this.request, this.request.id).subscribe(
+      jr => {
+        let errs: string = jr.errors;
+        if (errs!=null){
+          console.log("Error approving request: "+errs);
+        }
+        this.router.navigateByUrl('/request/list');
+      }
+    )
+  }
 
 }
