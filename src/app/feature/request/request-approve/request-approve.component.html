@@ -1,1 +1,90 @@
-<p>request-approve works!</p>
+
+<app-menu></app-menu>
+
+<section class="heading">
+    <span class="page-title font-weight-bold font-italic">{{title}}</span>
+    <span> | <a routerLink="/request/review">Return to list...</a></span>
+</section>
+
+<table *ngIf='request' class="table table-striped table sm">
+    
+    <thead class="thead-dark">
+        
+        <tr>
+            
+            <th><a>RequestID</a></th>
+            <th><a>Description</a></th>
+            <th><a>Status</a></th>
+            <th><a>Total</a></th>
+        
+        </tr>
+
+    </thead>
+
+    <tbody>
+        
+        <tr>
+            
+            <td>{{request.id}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total}}</td>
+            
+        </tr>
+
+    </tbody>
+
+</table>
+
+<span class='component-title'>[{{title}}]</span>
+
+<span>
+    <a routerLink='/line-item/line-item-create/{{request.id}}'>
+    <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
+    </a>
+</span>
+
+<table *ngIf='linesForRequest' class="table table-striped table sm">
+    
+    <thead class="thead-dark">
+        
+        <tr>
+            
+            <th><a>LineItemID</a></th>
+            <th><a>Product</a></th>
+            <th><a>Quantity</a></th>
+            <th><a>Price</a></th>
+            <th><a>Line Total</a></th>
+        
+        </tr>
+
+    </thead>
+
+    <tbody>
+        
+        <tr *ngFor='let lineItem of linesForRequest; let i = index'>
+            
+            <td>{{lineItem.id}}</td>
+            <td>{{lineItem.product.name}}</td>
+            <td>{{lineItem.quantity}}</td>
+            <td>{{lineItem.product.price}}</td>
+            <td>{{lineItem.quantity * lineItem.product.price}}</td>
+            
+        </tr>
+
+        <tr *ngIf='linesForRequest == 0'>
+            No line items yet. Please create a new one!
+        </tr>
+        
+        <tr>
+            <td>
+                <button (click)="approve(request,request.id)" class="btn btn-sm btn-primary">Approve</button>
+            </td>
+            <td>
+                <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text" placeholder="Reason For Rejection">
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
