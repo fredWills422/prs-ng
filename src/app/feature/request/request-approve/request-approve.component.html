@@ -80,6 +80,9 @@
             <td>
                 <button (click)="approve(request,request.id)" class="btn btn-sm btn-primary">Approve</button>
             </td>
+            <td *ngIf='request.reasonForRejection != 0'>
+                <button (click)="reject(request,request.id)" class="btn btn-sm btn-danger">Reject</button>
+            </td>
             <td>
                 <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text" placeholder="Reason For Rejection">
             </td>
