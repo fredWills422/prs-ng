@@ -55,18 +55,6 @@ export class RequestApproveComponent extends BaseComponent implements OnInit {
     
   }
 
-  submitForReview(){
-    this.requestSvc.submitForReview(this.request).subscribe(
-      jr => {
-        let errs: string = jr.errors;
-        if (errs!=null){
-          console.log("Error editing request: "+errs);
-        }
-        this.router.navigateByUrl('/request/list');
-      }
-    );
-  }
-
   approve(request:Request, id:number){
     this.requestSvc.approve(this.request, this.request.id).subscribe(
       jr => {
@@ -74,7 +62,7 @@ export class RequestApproveComponent extends BaseComponent implements OnInit {
         if (errs!=null){
           console.log("Error approving request: "+errs);
         }
-        this.router.navigateByUrl('/request/list');
+        this.router.navigateByUrl('/request/review');
       }
     )
   }
@@ -86,7 +74,7 @@ export class RequestApproveComponent extends BaseComponent implements OnInit {
         if (errs!=null){
           console.log("Error approving request: "+errs);
         }
-        this.router.navigateByUrl('/request/list');
+        this.router.navigateByUrl('/request/review');
       }
     )
   }
