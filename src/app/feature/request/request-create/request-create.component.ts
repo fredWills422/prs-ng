@@ -18,11 +18,8 @@ export class RequestCreateComponent extends BaseComponent implements OnInit {
   title: string = 'Request-Create';
   submitBtnTitle: string ='Create';
   request: Request = new Request();
-  users: User[]=[];
   
-
   constructor(private requestSvc: RequestService,
-              private userSvc: UserService,
               private router: Router,
               private location: Location,
               protected sysSvc: SystemService) { 
@@ -33,14 +30,7 @@ export class RequestCreateComponent extends BaseComponent implements OnInit {
 
     super.ngOnInit();
 
-    //populate users
-    this.userSvc.list().subscribe(
-      jr => {
-        this.users = jr.data as User[];
-        console.log(this.users);
-      }
-    );
-
+    this.request.user = this.loggedInUser;
     
   }
 
