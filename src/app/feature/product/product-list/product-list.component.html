@@ -9,7 +9,7 @@
         <tr>
             
             <th><a (click)="sort('id')">ID</a></th>
-            <th>vendorId</th>
+            <th><a>Vendor</a></th>
             <th><a (click)="sort('name')">name</a></th>
             <th><a (click)="sort('partNumber')">partNumber</a></th>
             <th><a (click)="sort('unit')">unit</a></th>
@@ -24,7 +24,7 @@
         <tr *ngFor='let product of products | sort:sortColumn:ascOrder'>
             
             <td>{{product.id}}</td>
-            <td>{{product.vendor.id}}</td>
+            <td>{{product.vendor.name}}</td>
             <td>{{product.name}}</td>
             <td>{{product.partNumber}}</td>
             <td>{{product.unit}}</td>

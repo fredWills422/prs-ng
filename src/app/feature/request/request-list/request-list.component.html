@@ -9,7 +9,7 @@
         <tr>
             
             <th><a (click)="sort('id')">ID</a></th>
-            <th>UserId</th>
+            <th>UserName</th>
             <th><a (click)="sort('description')">Description</a></th>
             <th><a (click)="sort('submittedDate')">SubmittedDate</a></th>
             <th><a (click)="sort('dateNeeded')">DateNeeded</a></th>
@@ -27,7 +27,7 @@
         <tr *ngFor='let request of requests | sort:sortColumn:ascOrder'>
             
             <td>{{request.id}}</td>
-            <td>{{request.user.id}}</td>
+            <td>{{request.user.userName}}</td>
             <td>{{request.description}}</td>
             <td>{{request.submittedDate}}</td>
             <td>{{request.dateNeeded}}</td>

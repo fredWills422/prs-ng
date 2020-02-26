@@ -16,7 +16,7 @@
             </td>
             <td>
                 <select [(ngModel)]="lineItem.product" class="rounded">
-                    <option *ngFor='let product of products' [ngValue]='product'>{{product.id}}{{product.name}}|{{product.vendor.name}}</option>
+                    <option *ngFor='let product of products' [ngValue]='product'>{{product.name}}|{{product.vendor.name}}</option>
                 </select>
             </td>
         </tr>
