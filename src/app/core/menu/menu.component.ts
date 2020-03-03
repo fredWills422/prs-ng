@@ -19,10 +19,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems=[
-      new MenuItem("User", "/user/list", "User list"),
-      new MenuItem("Product", "/product/list", "Product list"),
-      new MenuItem("Vendor", "/vendor/list", "Vendor list"),
-      new MenuItem("Request", "/request/list", "request list"),
+      new MenuItem("User", "/user/list", "user list"),
+      new MenuItem("Product", "/product/list", "product list"),
+      new MenuItem("Vendor", "/vendor/list", "vendor list"),
+      new MenuItem("Request", "/request/list", "request list")
     ]
     if(this.sysSvc.data.user.loggedIn){
       this.user = this.sysSvc.data.user.instance;

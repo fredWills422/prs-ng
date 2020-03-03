@@ -27,7 +27,7 @@ import { RequestApproveComponent } from './feature/request/request-approve/reque
 import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
 import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
 
-import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { UserLoginComponent } from './feature/user/user-log-in/user-log-in.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/home', pathMatch: 'full'},
@@ -60,7 +60,7 @@ const routes: Routes = [
   {path: 'line-item/line-item-create/:id', component: LineItemCreateComponent},
   {path: 'line-item/line-item-edit/:id', component: LineItemEditComponent},
 
-  { path: 'user/login', component: UserLoginComponent },
+  { path: 'user/log-in', component: UserLoginComponent },
 
   {path: '**', component: UserListComponent}
 ];
