@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SystemService } from 'src/app/service/system.service';
 import { Vendor } from 'src/app/model/vendor.class';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-line-item-edit',
@@ -29,8 +30,7 @@ export class LineItemEditComponent extends BaseComponent implements OnInit {
   
   
   constructor(private lineItemSvc: LineItemService,
-              private requestSvc: RequestService,
-              private productSvc: ProductService,
+              private location: Location,
               private router: Router,
               private route: ActivatedRoute,
               protected sysSvc: SystemService) { 
@@ -80,6 +80,10 @@ export class LineItemEditComponent extends BaseComponent implements OnInit {
       }
       this.router.navigateByUrl("request/lines");
     });
+  }
+
+  backClicked(){
+    this.location.back();
   }
 
 }

@@ -75,5 +75,9 @@ export class LineItemCreateComponent extends BaseComponent implements OnInit {
     });
 
   }
-  
+
+  backClicked(){
+    this.location.back();
+  }
+
 }
