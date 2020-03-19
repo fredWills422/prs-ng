@@ -8,13 +8,10 @@
     <thead class="thead-dark">
         <tr>
             
-            <th><a (click)="sort('id')">ID</a></th>
             <th><a>Vendor</a></th>
-            <th><a (click)="sort('name')">name</a></th>
-            <th><a (click)="sort('partNumber')">partNumber</a></th>
-            <th><a (click)="sort('unit')">unit</a></th>
-            <th><a (click)="sort('price')">price</a></th>
-            <th><a (click)="sort('photoPath')">photoPath</a></th>
+            <th><a (click)="sort('name')">Product Name</a></th>
+            <th><a (click)="sort('partNumber')">Part Number</a></th>
+            <th><a (click)="sort('price')">Price</a></th>
             
             <th>Action</th>
         
@@ -23,13 +20,10 @@
     <tbody>
         <tr *ngFor='let product of products | sort:sortColumn:ascOrder'>
             
-            <td>{{product.id}}</td>
             <td>{{product.vendor.name}}</td>
             <td>{{product.name}}</td>
             <td>{{product.partNumber}}</td>
-            <td>{{product.unit}}</td>
             <td>{{product.price}}</td>
-            <td>{{product.photoPath}}</td>
             
             <td>
                 <a routerLink='/product/detail/{{product.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>

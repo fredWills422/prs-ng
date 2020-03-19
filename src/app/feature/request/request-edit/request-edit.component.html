@@ -53,29 +53,13 @@
             </tr>
             <tr>
                 <td>
-                    Status:
-                </td>
-                <td>
-                    <input [(ngModel)]="request.status" class="rounded" type="text">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Total:
-                </td>
-                <td>
-                    <input [(ngModel)]="request.total" class="rounded" type="number">
-                </td>
-            </tr>
-            <tr>
-                <td>
                     DeliveryMode:
                 </td>
                 <td>
                     <input [(ngModel)]="request.deliveryMode" class="rounded" type="text">
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf='loggedInUser.admin'>
                 <td>
                     ReasonForRejection:
                 </td>
@@ -83,7 +67,7 @@
                     <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text">
                 </td>
             </tr>
-           
+            
         </table>
 
     </main>

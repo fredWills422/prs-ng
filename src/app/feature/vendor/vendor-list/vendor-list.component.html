@@ -8,23 +8,21 @@
     <thead class="thead-dark">
         <tr>
             
-            <th><a (click)="sort('id')">ID</a></th>
-            <th><a (click)="sort('name')">name</a></th>
-            <th><a (click)="sort('code')">code</a></th>
-            <th><a (click)="sort('state')">state</a></th>
-            <th><a (click)="sort('city')">city</a></th>
-            <th><a (click)="sort('zip')">zip</a></th>
-            <th><a (click)="sort('address')">address</a></th>
-            <th><a (click)="sort('email')">email</a></th>
-            <th><a (click)="sort('phoneNumber')">PhoneNumber</a></th>
+            <th><a (click)="sort('name')">Name</a></th>
+            <th><a (click)="sort('code')">Code</a></th>
+            <th><a (click)="sort('state')">State</a></th>
+            <th><a (click)="sort('city')">City</a></th>
+            <th><a (click)="sort('zip')">Zip</a></th>
+            <th><a (click)="sort('address')">Address</a></th>
+            <th><a (click)="sort('email')">Email</a></th>
+            <th><a (click)="sort('phoneNumber')">Phone Number</a></th>
             <th>Action</th>
         
         </tr>
     </thead>
     <tbody>
         <tr *ngFor='let vendor of vendors | sort:sortColumn:ascOrder'>
-            
-            <td>{{vendor.id}}</td>
+        
             <td>{{vendor.name}}</td>
             <td>{{vendor.code}}</td>
             <td>{{vendor.state}}</td>
