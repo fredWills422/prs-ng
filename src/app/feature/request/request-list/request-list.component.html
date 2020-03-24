@@ -36,10 +36,10 @@
             <td>{{request.reasonForRejection}}</td>
             
             <td>
-                <a routerLink='/request/detail/{{request.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
-                 | 
-                 <a routerLink='/request/lines/{{request.id}}'><img src='assets/lines.png' width='20' height='20' title='Lines'></a>
-                 |
+                <a routerLink='/request/detail/{{request.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'> | </a>
+                 
+                 <a *ngIf="request.user.userName == loggedInUser.userName || loggedInUser.admin" routerLink='/request/lines/{{request.id}}'><img src='assets/lines.png' width='20' height='20' title='Lines'> | </a>
+                 
                  <a *ngIf="loggedInUser.admin" routerLink='/request/edit/{{request.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
             </td>
             
